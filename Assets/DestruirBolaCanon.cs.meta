@@ -1,0 +1,14 @@
+fileFormatVersion: 2
+guid: dbcdddc9bc6a8c24da23b0f102be708d
+MonoImporter:
+  externalObjects: {}
+  serializedVersion: 2
+  defaultReferences:
+  - sonidoCaeAlMar: {fileID: 8300000, guid: 14213c38c5869c94eb02fcc90943872f, type: 3}
+  - sonidoGolpeaCuerda: {fileID: 8300000, guid: 41b5f2ecb98d7f848b83870c3f6f7f1f,
+      type: 3}
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
