@@ -8,6 +8,7 @@ public class DestruirBolaCanon : MonoBehaviour
     private AudioSource source;
     public AudioClip sonidoCaeAlMar;
     public AudioClip sonidoGolpeaCuerda;
+    public AudioClip sonidoGolpeOponente;
 
     // Start is called before the first frame update
     void Start()
@@ -44,6 +45,12 @@ public class DestruirBolaCanon : MonoBehaviour
         else if (tag == "cuerdaFloja")
         {
             source.PlayOneShot(sonidoGolpeaCuerda);
+            yield return new WaitForSeconds(3);
+            Destroy(this.gameObject);
+        }
+        else if (tag == "oponente")
+        {
+            source.PlayOneShot(sonidoGolpeOponente);
             yield return new WaitForSeconds(3);
             Destroy(this.gameObject);
         }
