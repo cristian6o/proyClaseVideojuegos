@@ -4,10 +4,13 @@ using UnityEngine;
 
 public class ganaOponente : MonoBehaviour
 {
+    public AudioClip sonidoPierde;
+    private AudioSource sourceAudio;
+    
     // Start is called before the first frame update
     void Start()
     {
-        
+        sourceAudio = GetComponent<AudioSource>();
     }
 
     // Update is called once per frame
@@ -18,6 +21,11 @@ public class ganaOponente : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        Debug.Log("entered");
+        if (other.gameObject.tag == "oponente")
+        {
+            sourceAudio.PlayOneShot(sonidoPierde);
+            Debug.Log("Fin del juego, el oponente gana la partida");
+            Time.timeScale = 0;
+        }
     }
 }

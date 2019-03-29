@@ -7,7 +7,6 @@ public class SonidosJuego : MonoBehaviour
 {
     public AudioClip sonidoJuego;
     public AudioClip sonidoGana;
-    public AudioClip sonidoPierde;
     public Text txtTiempo;
     private AudioSource source;
 
@@ -55,8 +54,7 @@ public class SonidosJuego : MonoBehaviour
                 pintarMensaje("GANASTE!");
                 source = GetComponent<AudioSource>();
                 source.PlayOneShot(sonidoGana);
-                yield return new WaitForSeconds(3);
-                Application.Quit();
+                Time.timeScale = 0;
             }
         }
     }
