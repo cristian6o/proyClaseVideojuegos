@@ -10,10 +10,13 @@ public class SpawnerBolaCanon : MonoBehaviour
     public GameObject canon;
     private AudioSource source;
     public AudioClip sonidoCanon;
+    private Boolean puedeDisparar;
+    public GameObject avisoDisparo;
 
     // Start is called before the first frame update
     void Start()
     {
+        this.puedeDisparar = true;
         source = GetComponent<AudioSource>();
     }
 
@@ -24,9 +27,22 @@ public class SpawnerBolaCanon : MonoBehaviour
         if (Input.GetKeyDown("space"))
         {
             //crea la bola
-            GameObject bolaCanon = SpawnBolaCanon();
-            DispararBolaCanon(bolaCanon);
+            if (puedeDisparar)
+            {
+                GameObject bolaCanon = SpawnBolaCanon();
+                DispararBolaCanon(bolaCanon);
+                this.puedeDisparar = false;
+                avisoDisparo.GetComponent<Renderer>().enabled = false; //Ocultar
+                StartCoroutine(tiempoEsperaDisparar());
+            }
         }
+    }
+
+    IEnumerator tiempoEsperaDisparar()
+    {
+        yield return new WaitForSeconds(4);
+        this.puedeDisparar = true;
+        avisoDisparo.GetComponent<Renderer>().enabled = true; //Ocultar
     }
 
     private void DispararBolaCanon(GameObject bolaCanon)

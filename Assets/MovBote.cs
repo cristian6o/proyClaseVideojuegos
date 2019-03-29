@@ -7,7 +7,7 @@ public class MovBote : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        
+        StartCoroutine(desvioPorViento());
     }
 
     // Update is called once per frame
@@ -34,6 +34,15 @@ public class MovBote : MonoBehaviour
             //Avanzar hacia atrás
             transform.Translate(Vector3.right * 25f * Time.deltaTime);
 
+        }
+    }
+
+    IEnumerator desvioPorViento()
+    {
+        while(true)
+        {
+            transform.Translate(Vector3.right * 7f * Time.deltaTime);
+            yield return 0;
         }
     }
 }

@@ -49,6 +49,10 @@ public class SonidosJuego : MonoBehaviour
             yield return new WaitForSeconds(1);
             tiempo--;
             pintarTiempo(tiempo);
+            if(tiempo == 0)
+            {
+                pintarMensaje("TIEMPO AGOTADO!");
+            }
         }
     }
 }
