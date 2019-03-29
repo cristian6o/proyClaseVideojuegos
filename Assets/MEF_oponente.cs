@@ -18,7 +18,7 @@ public class MEF_oponente : MonoBehaviour
 
     public estado estadoActual;
 
-    float velocidad = 6f;
+    float velocidad = 7f;
 
     // Start is called before the first frame update
     void Start()
@@ -99,25 +99,5 @@ public class MEF_oponente : MonoBehaviour
         transform.Rotate(Vector3.up, -5, Space.World);
         oponente.GetComponent<Renderer>().enabled = true; //Ocultar
         yield return new WaitForSeconds(0.3f);
-    }
-
-    IEnumerator Pierde()
-    {
-        while (estadoActual == estado.Pierde)
-        {
-            Debug.Log("Estado actual oponente " + estadoActual);
-            Destroy(this);
-            yield return 0;
-        }
-    }
-
-    IEnumerator Gana()
-    {
-        while (estadoActual == estado.Gana)
-        {
-            Debug.Log("Estado actual oponente " + estadoActual);
-            Destroy(this);
-            yield return 0;
-        }
     }
 }
