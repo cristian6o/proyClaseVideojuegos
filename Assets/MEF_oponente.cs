@@ -18,7 +18,7 @@ public class MEF_oponente : MonoBehaviour
 
     public estado estadoActual;
 
-    float velocidad = 7f;
+    float velocidad = 5f;
 
     // Start is called before the first frame update
     void Start()
